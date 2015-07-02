@@ -12,25 +12,32 @@ import re
 
 #def word_frequency(word_freq):
 #this needs to take the file from my with statement and find the top 20 words
-def open_file():
-    with open("sample.txt") as sample_text:
-        words = re.sub(r'[^A-Za-z ]', " ", sample_text.read().lower())
-        new_text = words.split()
-        return (sorted(new_text))
-
 
 def word_frequency(word_freq):
-    words_counts = {}
+    """This function creates our dict and counts our words."""
+
+    words_counts = {} #This is our dict
+
+    #count number of times a word appears
     for words in word_freq:
         if words not in words_counts:
-            words_counts[word] = 1
+            words_counts[words] = 1
         else:
-            words_counts[word] += 1
+            words_counts[words] += 1
 
-    return words_count_list
+    return words_counts
 
 
 
 if __name__ == "__main__":
 
-    open_file(word_frequency(word_freq))
+    with open("sample.txt") as sample_text:
+        #Open my file
+
+        words = re.sub(r'[^A-Za-z ]', " ", sample_text.read().lower())
+        #Read everything in the file, stirp it and lowercase it all
+
+        new_text = words.split()
+        #split each word into a list
+
+        print(sorted(word_frequency(new_text)))
