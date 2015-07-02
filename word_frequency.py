@@ -18,14 +18,16 @@ def word_frequency(word_freq):
 
     words_counts = {} #This is our dict
 
-    #count number of times a word appears
+    #Count words and and them to words_counts
     for words in word_freq:
         if words not in words_counts:
             words_counts[words] = 1
         else:
             words_counts[words] += 1
 
-    return words_counts
+    word_count = sorted(words_counts.items(), key=lambda x: x[1], reverse=True)
+
+    return word_count
 
 
 
@@ -40,4 +42,8 @@ if __name__ == "__main__":
         new_text = words.split()
         #split each word into a list
 
-        print(sorted(word_frequency(new_text)))
+        new_list = word_frequency(new_text)
+
+        new_list = new_list[:21]
+
+        print(new_list)
